@@ -1,10 +1,15 @@
 language: go
 sudo: true
 
+go:
+  - "1.x"
+  - "1.8"
+  - "1.10.x"
+  - master
+
 cache:
   directories:
     - $HOME/cache
-
 
 addons: {apt: {packages: [yasm]}}
 
