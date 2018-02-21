@@ -1,0 +1,20 @@
+language: go
+sudo: true
+
+cache:
+  directories:
+    - $HOME/cache
+
+
+addons: {apt: {packages: [yasm]}}
+
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y go
+
+before_script:
+
+script:
+  - go build -v
+
