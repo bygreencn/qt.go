@@ -146,7 +146,7 @@ func InvokeQtFuncByName(symname string, args []uint64, types []int) uint64 {
 }
 
 ////////
-type VRetype = uint64 // interface{}
+// type VRetype = uint64 // interface{}
 
 var debugFFICall = false
 var qtlibs = map[string]FFILibrary{}
@@ -215,7 +215,7 @@ func init_ffi_invoke() {
 
 func deinit() {}
 
-func InvokeQtFunc(symname string, retype byte, types []byte, args ...interface{}) (VRetype, error) {
+func InvokeQtFunc(symname string, retype byte, types []byte, args ...interface{}) (uint64, error) {
 	for modname, lib := range qtlibs {
 		addr, err := lib.Symbol(symname)
 		ErrPrint(err)
@@ -231,7 +231,7 @@ func InvokeQtFunc(symname string, retype byte, types []byte, args ...interface{}
 	return 0, fmt.Errorf("Symbol not found: %s", symname)
 }
 
-func InvokeQtFunc5(symname string, retype byte, argc int, types []byte, args []uint64) (VRetype, error) {
+func InvokeQtFunc5(symname string, retype byte, argc int, types []byte, args []uint64) (uint64, error) {
 	addr := GetQtSymAddr(symname)
 	log.Println("FFI Call:", symname, addr)
 
@@ -242,7 +242,7 @@ func InvokeQtFunc5(symname string, retype byte, argc int, types []byte, args []u
 	return uint64(retval), fmt.Errorf("Symbol not found: %s", symname)
 }
 
-func InvokeQtFunc6(symname string, retype byte, args ...interface{}) (VRetype, error) {
+func InvokeQtFunc6(symname string, retype byte, args ...interface{}) (uint64, error) {
 	addr := GetQtSymAddr(symname)
 	if debugFFICall {
 		log.Println("FFI Call:", symname, addr, "retype=", retype, "argc=", len(args))
@@ -259,7 +259,7 @@ func InvokeQtFunc6(symname string, retype byte, args ...interface{}) (VRetype, e
 }
 
 // fix return QSize like pure record, RVO
-func InvokeQtFunc7(symname string, args ...interface{}) (VRetype, error) {
+func InvokeQtFunc7(symname string, args ...interface{}) (uint64, error) {
 	addr := GetQtSymAddr(symname)
 	var retype byte = FFI_TYPE_POINTER
 	log.Println("FFI Call:", symname, addr, "retype=", retype, "argc=", len(args))
@@ -501,7 +501,7 @@ func GetCtorAllocStack(clsname string) []uintptr {
 
 ///
 func test() {
-	var ret VRetype
+	var ret uint64 // VRetype
 	var err error
 	ret, err = InvokeQtFunc("_Z5qrandv", 0, nil)
 	log.Println(ret, err)
