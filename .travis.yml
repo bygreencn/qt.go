@@ -17,5 +17,5 @@ before_script:
   - go get -v github.com/gonuts/dl
 
 script:
-  - make qtrt-
+  - make qtrt- bases qmls extras tools
 
