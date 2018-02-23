@@ -7,13 +7,14 @@ matrix:
   fast_finish: true
   include:
     # the actual compilin'
-    - stage: Linux
+    - stage: Linux-go1.9
       os: linux
       env: JOB=build-ubuntu14
-      go:
-        - "1.9"
-        - "1.10.x"
-        #  - master
+      go: "1.9"
+    - stage: Linux-go1.10
+      os: linux
+      env: JOB=build-ubuntu14
+      go: "1.10.x"
 
 before_install:
 
