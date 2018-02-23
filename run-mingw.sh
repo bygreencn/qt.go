@@ -35,11 +35,12 @@ cp -a dl $GOPATH/src/github.com/gonuts/
 
 export CGO_ENABLED=1
 export GOOS=windows
-export CGO_LDFLAGS="-ldl -lkernel32"
 if [ x"$WINARCH" = x"x64" ]; then
     ### build x64 version
     export GOARCH=amd64
     export CC=x86_64-w64-mingw32-gcc
+    export CGO_LDFLAGS="-L/usr/x86_64-w64-mingw32/lib/ -ldl -lkernel32"
+
     go get -v github.com/emirpasic/gods/lists/arraylist
     go get -v github.com/thoas/go-funk
     go get -v github.com/kitech/goplusplus
@@ -56,6 +57,8 @@ else
     ### build x32 version dll
     export GOARCH=386
     export CC=i686-w64-mingw32-gcc
+    export CGO_LDFLAGS="-L/usr/i686-w64-mingw32/lib/ -ldl -lkernel32"
+
     go get -v github.com/emirpasic/gods/lists/arraylist
     go get -v github.com/thoas/go-funk
     go get -v github.com/kitech/goplusplus
