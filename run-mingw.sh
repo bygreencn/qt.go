@@ -13,7 +13,7 @@ echo "SigLevel = Optional TrustAll" >> /etc/pacman.conf
 echo "Server = https://martchus.no-ip.biz/repo/arch/ownstuff/os/\$arch" >> /etc/pacman.conf
 
 pacman -Suyy
-pacman -S --noconfirm go git
+pacman -S --noconfirm go git make
 pacman -S --noconfirm mingw-w64-gcc mingw-w64-libffi
 
 pwd
