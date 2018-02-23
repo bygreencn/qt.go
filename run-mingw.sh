@@ -43,7 +43,7 @@ if [ x"$WINARCH" = x"x64" ]; then
 
     export GOARCH=amd64
     export CC=x86_64-w64-mingw32-gcc
-    export CGO_LDFLAGS="-L/usr/x86_64-w64-mingw32/lib/ -ldl -lkernel32"
+    export CGO_LDFLAGS="-L/usr/x86_64-w64-mingw32/lib/ -ldl -lpsapi -lkernel32"
 
     go get -v github.com/emirpasic/gods/lists/arraylist
     go get -v github.com/thoas/go-funk
@@ -61,7 +61,7 @@ else
 
     export GOARCH=386
     export CC=i686-w64-mingw32-gcc
-    export CGO_LDFLAGS="-L/usr/i686-w64-mingw32/lib/ -ldl -lkernel32"
+    export CGO_LDFLAGS="-L/usr/i686-w64-mingw32/lib/ -ldl -lpsapi -lkernel32"
 
     go get -v github.com/emirpasic/gods/lists/arraylist
     go get -v github.com/thoas/go-funk
