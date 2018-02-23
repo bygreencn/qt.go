@@ -8,14 +8,14 @@ matrix:
   fast_finish: true
   include:
     # the actual compilin'
-    - stage: Ubuntu14-go1.10
-      os: linux
-      env: JOB=build-ubuntu14
-      go: "1.10.x"
-    - stage: Ubuntu14-go1.9
-      os: linux
-      env: JOB=build-ubuntu14
-      go: "1.9"
+    # - stage: Ubuntu14-go1.10
+    #   os: linux
+    #   env: JOB=build-ubuntu14
+    #   go: "1.10.x"
+    # - stage: Ubuntu14-go1.9
+    #   os: linux
+    #   env: JOB=build-ubuntu14
+    #   go: "1.9"
     # should be latest go
     - stage: WinMingw-x64
       os: linux

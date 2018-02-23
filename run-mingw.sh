@@ -35,6 +35,7 @@ cp -a dl $GOPATH/src/github.com/gonuts/
 if [ x"$WINARCH" = x"x64" ]; then
     ### build x64 version
     export GOARCH=amd64
+    export CC=x86_64-w64-mingw32-gcc
     go get -v github.com/emirpasic/gods/lists/arraylist
     go get -v github.com/thoas/go-funk
     go get -v github.com/kitech/goplusplus
@@ -46,6 +47,7 @@ if [ x"$WINARCH" = x"x64" ]; then
 else
     ### build x32 version dll
     export GOARCH=386
+    export CC=i686-w64-mingw32-gcc
     go get -v github.com/emirpasic/gods/lists/arraylist
     go get -v github.com/thoas/go-funk
     go get -v github.com/kitech/goplusplus
