@@ -1,11 +1,6 @@
 language: go
 sudo: true
 
-go:
-  - "1.9"
-  - "1.10.x"
-#  - master
-
 addons: {apt: {packages: [yasm]}}
 
 matrix:
@@ -15,6 +10,10 @@ matrix:
     - stage: Linux
       os: linux
       env: JOB=build-ubuntu14
+      go:
+        - "1.9"
+        - "1.10.x"
+        #  - master
 
 before_install:
 
