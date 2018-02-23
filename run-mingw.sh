@@ -19,6 +19,7 @@ pacman -S --noconfirm mingw-w64-gcc mingw-w64-libffi
 pwd
 
 cd /root/
+cd $GOPATH/src/github.com/kitech/qt.go/
 ls
 
 pwd
