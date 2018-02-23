@@ -4,25 +4,21 @@ sudo: true
 go:
   - "1.9"
   - "1.10.x"
-  - master
-
-cache:
-  directories:
-    - $HOME/cache
+#  - master
 
 addons: {apt: {packages: [yasm]}}
 
+matrix:
+  fast_finish: true
+  include:
+    # the actual compilin'
+    - stage: Linux
+      os: linux
+      env: JOB=build-ubuntu14
 
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libffi-dev
 
 before_script:
-  - go get -v github.com/gonuts/dl
-  - go get -v github.com/emirpasic/gods/lists/arraylist
-  - go get -v github.com/thoas/go-funk
-  - go get -v github.com/kitech/goplusplus
 
-script:
-  - make qtrt- bases qmls extras tools
+script:  "./.travis/$JOB.sh"
 
