@@ -23,7 +23,7 @@ pacman -S --noconfirm mingw-w64-gcc mingw-w64-libffi
 pwd
 
 cd /root/
-ls && ls src/
+ls
 
 pwd
 
