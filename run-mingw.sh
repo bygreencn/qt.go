@@ -42,6 +42,10 @@ if [ x"$WINARCH" = x"x64" ]; then
     go get -v github.com/thoas/go-funk
     go get -v github.com/kitech/goplusplus
 
+    wget http://pkg.mxe.cc/repos/tar/mxe-x86-64-w64-mingw32.static/mxe-x86-64-w64-mingw32.static-dlfcn-win32_0.e19bf07.tar.xz
+    tar xvf mxe-x86-64-w64-mingw32.static-dlfcn-win32_0.e19bf07.tar.xz
+    cp -va usr/x86_64-w64-mingw32.static/* /usr/x86_64-w64-mingw32/
+
     # script:
     pwd
     make qtrt- bases qmls extras tools
@@ -53,6 +57,10 @@ else
     go get -v github.com/emirpasic/gods/lists/arraylist
     go get -v github.com/thoas/go-funk
     go get -v github.com/kitech/goplusplus
+
+    wget http://pkg.mxe.cc/repos/tar/mxe-i686-w64-mingw32.static/mxe-i686-w64-mingw32.static-dlfcn-win32_0.e19bf07.tar.xz
+    tar xvf mxe-i686-w64-mingw32.static-dlfcn-win32_0.e19bf07.tar.xz
+    cp -va usr/i686-w64-mingw32.static/* /usr/i686-w64-mingw32/
 
     # script:
     pwd
