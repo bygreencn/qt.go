@@ -25,8 +25,7 @@ ls
 
 pwd
 
-export CGO_ENABLED=1
-export GOOS=windows
+
 
 git clone https://github.com/gonuts/dl.git
 sed -i 's/NoLoad/\/\/NoLoad/' dl/dl.go
@@ -34,6 +33,9 @@ sed -i 's/NoDelete/\/\/NoDelete/' dl/dl.go
 mkdir $GOPATH/src/github.com/gonuts -p
 cp -a dl $GOPATH/src/github.com/gonuts/
 
+export CGO_ENABLED=1
+export GOOS=windows
+export CGO_LDFLAGS="-ldl -lkernel32"
 if [ x"$WINARCH" = x"x64" ]; then
     ### build x64 version
     export GOARCH=amd64
